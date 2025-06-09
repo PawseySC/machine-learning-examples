@@ -19,7 +19,7 @@ NUM_PYTORCH_PROCESSES=8
 # Setting the number of threads to be generated for each PyTorch process.
 export OMP_NUM_THREADS=8
 
-# The computw node executing the batch script.
+# The compute node executing the batch script.
 export RDZV_HOST=$(hostname)
 export RDZV_PORT=29400                   
 
