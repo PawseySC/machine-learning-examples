@@ -3,6 +3,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
+import argparse
 
 
 # Program parameters
@@ -51,9 +52,14 @@ def train(dataloader, model, loss_fn, optimizer):
 
 
 if __name__ == "__main__":
-
-    training_data = datasets.FashionMNIST(root="data", train=True, download=True, transform=ToTensor())
-    test_data = datasets.FashionMNIST(root="data", train=False, download=True, transform=ToTensor())
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data", "-d", type=str, required=True, help="Path to the dataset root directory.")
+    args = vars(parser.parse_args())
+    # training_data = datasets.FashionMNIST(root="data", train=True, download=True, transform=ToTensor())
+    training_data = datasets.FashionMNIST(root=args["data"], train=True, download=False, transform=ToTensor())
+    test_data = datasets.FashionMNIST(root=args["data"], train=False, download=False, transform=ToTensor())
+    #test_data = datasets.FashionMNIST(root="data", train=False, download=True, transform=ToTensor())
     train_dataloader = DataLoader(training_data, batch_size=batch_size)
     test_dataloader = DataLoader(test_data, batch_size=batch_size)
 
