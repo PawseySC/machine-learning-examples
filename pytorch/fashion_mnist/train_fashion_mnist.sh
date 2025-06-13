@@ -10,4 +10,4 @@
 
 
 module load pytorch/2.2.0-rocm5.7.3
-python3 main.py --data $MYSCRATCH/ml-data
+srun -c 8 python3 main.py --data $MYSCRATCH/ml-data
