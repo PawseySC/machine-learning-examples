@@ -14,6 +14,5 @@ srun -n 1 wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-i
 srun -n 1 wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz &
 
 wait
-
 gunzip *.gz
 
